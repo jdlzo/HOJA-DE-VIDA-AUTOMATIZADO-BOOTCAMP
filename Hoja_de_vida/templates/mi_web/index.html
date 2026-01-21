@@ -1,0 +1,78 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='{%static "mi_web/css/style.css" %}' rel="stylesheet">
+    <title>Hoja de vida</title>
+</head>
+<body>
+    
+        <div class="cv-container">
+            <div class="cv-header">
+                <div class="perfil">
+                    <img src='{% static "mi_web/img/Fotoperfil.jpg"%}' alt="Foto de perfil" 
+                    style="width:90px; height:90px; border-radius:50%; object-fit:cover;">
+            </div>
+        <h1>Mi nombre es {{ perfil.nombres }} {{ perfil.apellidos }}</h1>
+        <p>{{ perfil.descripcionperfil }} de nacionalidad {{ perfil.nacionalidad }}</p>
+
+        <h2>Experiencia Laboral</h2>
+        {% for exp in experiencias %}
+        <p><strong>{{ exp.cargodesempenado }}</strong> – {{ exp.nombrempresa }}</p>
+        <h4>Fecha inio y fin: </h4>
+        <p>{{exp.fechainiciogestion}}--{{exp.fechafingestion}}</p>
+        {% empty %}
+        <p class="no-data">No hay experiencia registrada</p>
+        {% endfor %}
+
+        <h2>Cursos Realizados</h2>
+        {% for curso in cursos %}
+        <p>{{ curso.nombrecurso }} ({{ curso.totalhoras }} horas)</p>
+        <h4>Fecha de Inicio y fin: </h4>
+        <p>{{curso.fechainicio}} -- {{curso.fechafin}}</p>
+
+        {% empty %}
+        <p class="no-data">No hay cursos registrados</p>
+        {% endfor %}
+
+    </div>
+
+    <div class="bg-slider">
+        <div class="bgtrack" id="bgTrack">
+            <img src="{% static 'mi_web/img/java.png' %}">
+            <img src="{% static 'mi_web/img/python.png' %}">
+            <img src="{% static 'mi_web/img/htmlcss.png' %}">
+
+            <img src="{% static 'mi_web/img/htmlcss.png' %}">
+            <img src="{% static 'mi_web/img/java.png' %}">
+            <img src="{% static 'mi_web/img/python.png' %}">
+        </div>
+    </div>
+
+    <script>
+        const track = document.getElementById("bgTrack");
+
+        track.innerHTML += track.innerHTML; // duplicado dinámico
+
+        let x = 0;
+        const speed = 0.9;
+
+        function animate() {
+        x -= speed;
+
+        if (Math.abs(x) >= track.scrollWidth / 2) {
+            x = 0;
+        }
+
+        track.style.transform = `translate(${x}px, -50%)`;
+        requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+
+</body>
+</html>
+

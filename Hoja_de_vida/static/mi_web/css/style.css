@@ -1,0 +1,87 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Fondo general */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f9fd;
+    color: #333;
+    line-height: 1.6;
+    padding: 40px 0;
+}
+
+/* Contenedor principal */
+.cv-container {
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    padding: 35px 45px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Nombre */
+.cv-container h1 {
+    font-size: 2.4rem;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+/* Descripción */
+.cv-container > p {
+    font-size: 1.1rem;
+    color: #4b5563;
+    margin-bottom: 25px;
+}
+
+/* Títulos de sección */
+.cv-container h2 {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #a1bbf3;
+    border-left: 12px solid #3b82f6;
+    padding-left: 12px;
+}
+
+/* Ítems (experiencia / cursos) */
+.cv-container p {
+    margin-bottom: 10px;
+    padding-left: 15px;
+}
+
+/* Negrita más elegante */
+.cv-container strong {
+    color: #1d4ed8;
+}
+
+/* Mensaje vacío */
+.cv-container p:empty,
+.cv-container p.no-data {
+    color: #9ca3af;
+    font-style: italic;
+}
+
+/* Responsive básico */
+@media (max-width: 600px) {
+    .cv-container {
+        padding: 25px;
+    }
+
+    .cv-container h1 {
+        font-size: 2rem;
+    }
+}
+
+/*cosa para el movimiento*/
+
+.bg-slider .bgtrack img {
+  width: 360px;
+  flex-shrink: 0;
+}
+
